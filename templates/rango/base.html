@@ -5,9 +5,12 @@
 <html>
 	<head lang="en">
 		<meta = charset="UTF-8" />
-		<title>Rango -
-		{% block title_block %}
-		{% endblock %}</title>
+		<title>{% if user.is_authenticated %}
+		{{user.username}} is logged in
+		{% else %}
+		You are not logged in
+		{% endif %}
+		</title>
 	</head>
 	<body>
 	{% block body_block %}
@@ -17,6 +20,7 @@
 		<li><a href="{% url 'about' %}">About</a></li>
 		<li><a href="{% url 'index' %}">Index</a></li>
 		<li><a href="{% url 'register' %}">Sign Up</a></li>
+		<li><a href="{% url 'login' %}">Login</a><li>
 	</ul>
 	<div>
 		{% block sidebar_block %}
