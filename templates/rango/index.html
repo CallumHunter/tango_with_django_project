@@ -21,8 +21,8 @@
 			<strong> there are no categories present.</strong>
 		{% endif %}
 		</div>
-		<div><a href="/rango/about/">About</a><br />
-		<a href="rango/add_category">Add a New Category</a><br />
+		<div><a href="{% url 'about' %}">About</a><br />
+		<a href="{% url 'add_category' %}">Add a New Category</a><br />
 		<img src="{% static "images/Simba2.jpg" %}" alt="Picture of Rango" /> 
 		</div>
 	</body>
