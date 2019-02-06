@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 def index(request):
     #query for all categories currently stored
@@ -116,6 +117,11 @@ def about(request):
 @login_required
 def restricted(request):
     return HttpResponse("Since you are logged in, you can see this text!")
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 def user_login(request):
     if request.method == "POST":
