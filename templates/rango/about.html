@@ -1,9 +1,12 @@
+{% load staticfiles %}
+
 <html>
 	<head>
 		<title> About </title>
 	</head>
 	<body>
 		<h3>{{aboutString}}</h3>
-		<a href = "{{ indexLink }}"> <h4> Back to home page </h4> </a>
+		<a href = ""> <h4> Back to home page </h4> </a>
+		<img src = "{{ MEDIA_URL }}cat.jpg" alt= "Picture of a Cat" />
 	</body>
 </html>

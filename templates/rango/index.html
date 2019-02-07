@@ -21,12 +21,20 @@
 				</li>
 			{% endfor %}
 		</ul>
+		<h1>Most Viewed Pages</h1>
+		<ul>
+			{% for page in pages %}
+				<li>
+				<a href="/rango/category/{{page.category.slug}}/page.title">{{page.category.name}} : {{page.title}}</a>
+				</li>
+			{% endfor %}
+		</ul>
 		{% else %}
 			<strong> there are no categories present.</strong>
 		{% endif %}
 		</div>
 		<div><a href="{% url 'about' %}">About</a><br />
 		<a href="{% url 'add_category' %}">Add a New Category</a><br />
-		<img src="{% static "images/Simba2.jpg" %}" alt="Picture of Rango" /> 
+		<img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" /> 
 		</div>
 {% endblock %}

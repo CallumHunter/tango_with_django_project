@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Category
+from rango.models import Page
 from rango.forms import CategoryForm
 from rango.forms import PageForm
 from rango.forms import UserForm, UserProfileForm
@@ -17,7 +18,8 @@ def index(request):
     #place in context dictionary
     #then pass to template engine
     category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'categories': category_list}
+    page_list = Page.objects.order_by('-views')[:5]                                                
+    context_dict = {'categories': category_list, 'pages': page_list}
     
     return render(request,'rango/index.html',context=context_dict)
 
@@ -113,7 +115,8 @@ def register(request):
 def about(request):
     aboutString = "Rango says here is the about page"
     context_dict = {"aboutString" : aboutString,
-                    "indexLink" : "../"}
+                    "indexLink" : "../",
+                    "MEDIA_URL":"/media/"}
     return render(request, "rango/about.html", context_dict)
 
 @login_required
